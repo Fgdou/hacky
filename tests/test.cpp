@@ -4,6 +4,8 @@
 
 #include <gtest/gtest.h>
 
+#include "BigInt_test.cpp"
+
 int main(int arc, char** arv){
     testing::InitGoogleTest();
 

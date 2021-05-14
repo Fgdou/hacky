@@ -6,13 +6,12 @@ set(CMAKE_CXX_STANDARD 14)
 
 project(hacky CXX)
 file(GLOB_RECURSE SRC src/*)
-add_executable(hacky ${SRC})
+add_library(hacky ${SRC})
 
 
 enable_testing()
 
 project(hacky_test)
-file(GLOB_RECURSE SRC_TEST tests/*)
-add_executable(hacky_test ${SRC_TEST})
-target_link_libraries(hacky_test gtest)
-target_include_directories(hacky_test PUBLIC lib/googletest/googletest/include)
+add_executable(hacky_test tests/test.cpp)
+target_link_libraries(hacky_test gtest hacky)
+target_include_directories(hacky_test PUBLIC lib/googletest/googletest/include src)
